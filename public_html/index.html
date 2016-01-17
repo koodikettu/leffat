@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html ng-app="MovieApp">
+    <head>
+        <title>Elokuvahaku</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css">
+        <link href='https://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
+        <!--        <link rel="stylesheet" href="bootstrap.min.css">-->
+        <link rel="stylesheet" href="movieapp.css">
+    </head>
+    <body>
+        <div class="container-fluid">
+
+
+
+            <div class="siteHeader">
+                <div class="siteTitle">
+                    Elokuvahaku
+                </div>
+
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="siteHeader siteTitle">
+
+                <div class="container menu">
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <a href="#/">
+                                <div class="menuitem">
+                                    <span class="glyphicon glyphicon-home"></span>
+                                </div>
+                            </a>
+                            <a href="#/movielist">
+                                <div class="menuitem">
+                                    Elokuvat
+                                </div>
+                            </a>
+                            <a href="#/comingSoon">
+                                <div class="menuitem">
+                                    Tulossa
+                                </div>
+                            </a>
+                            <a href="#/news">
+                                <div class="menuitem">
+                                    Uutiset
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <div class="container">
+
+
+            <div ng-view autoscroll="true">
+            </div>
+            <!--            <div class="row">
+                            <div class="col-md-12">
+                                <div class="infobox">
+                                    <p>
+                                        Terve!
+                                    </p>
+                                </div>
+                            </div>
+                        </div>-->
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-route.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
+        <script src="app/jquery.xml2json.js" type="text/javascript" language="javascript"></script>
+        <script src="app/app.js"></script>
+        <script src="app/Controllers/homeController.js"></script>
+        <script src="app/Controllers/movieListController.js"></script>
+        <script src="app/Controllers/movieController.js"></script>
+        <script src="app/Controllers/comingSoonListController.js"></script>
+        <script src="app/Controllers/comingSoonMovieController.js"></script>
+        <script src="app/Controllers/singleScheduleController.js"></script>
+        <script src="app/Controllers/theatreAreaScheduleController.js"></script>
+        <script src="app/Controllers/newsListController.js"></script>
+        <script src="app/Controllers/newsItemController.js"></script>
+        <script src="app/Services/timeService.js"></script>
+        <script src="bootstrap.min.js"></script>
+    </body>
+</html>

@@ -1,0 +1,62 @@
+<div>
+    <a ng-href="#/movie/{{movie.ID}}">Vaihda</a>
+</div>
+<hr>
+<h2>Pictures</h2>
+<img ng-repeat="picture in movie.Pictures.Picture" ng-src="{{picture.Location}}">
+<h2>Gallery</h2>
+<img ng-repeat="picture in movie.Gallery.GalleryImage" ng-src="{{picture.Location}}">
+
+<hr>
+
+<img ng-src="{{movie.Images.EventLargeImageLandscape}}" alt="Image:EventLargeImageLandscape {{movie.Title}}">
+<img ng-src="{{movie.Images.EventLargeImagePortrait}}" alt="Image:EventLargeImagePortrait {{movie.Title}}">
+<img ng-src="{{movie.Images.EventMediumImageLandscape}}" alt="Image:EventMediumImageLandscape {{movie.Title}}">
+<img ng-src="{{movie.Images.EventMediumImagePortrait}}" alt="Image:EventMediumImagePortrait {{movie.Title}}">
+<img ng-src="{{movie.Images.EventSmallImageLandscape}}" alt="Image:EventSmallImageLandscape {{movie.Title}}">
+<img ng-src="{{movie.Images.EventSmallImagePortrait}}" alt="Image:EventSmallImagePortrait {{movie.Title}}">
+<img ng-src="{{movie.Images.EventMicroImageLandscape}}" alt="Image:EventMicroImageLandscape {{movie.Title}}">
+<img ng-src="{{movie.Images.EventMicroImagePortrait}}" alt="Image:EventMicroImagePortrait {{movie.Title}}">
+<h1>{{movie.Title}}</h1>
+<p>{{movie.OriginalTitle}}</p>
+<p>{{movie.ProductionYear}}</p>
+<p>{{movie.LengthInMinutes}} min</p>
+<p>{{movie.dtLocalRelease}}</p>
+<p>{{movie.Rating}}</p>
+<p>{{movie.RatingLabel}}</p>
+<img ng-src="{{movie.RatingImageUrl}}">
+<p>{{movie.LocalDistributorName}}</p>
+<p>{{movie.GlobalDistributorName}}</p>
+<p>{{movie.ProductionCompanies}}</p>
+<p>{{movie.EventType}}</p>
+<p>{{movie.Genres}}</p>
+<p>{{movie.ShortSynopsis}}</p>
+<p>{{movie.Synopsis}}</p>
+<p>{{movie.EventURL}}</p>
+<h2>Näyttelijät</h2>
+<ul>
+    <li ng-repeat="actor in movie.Cast.Actor">{{actor.FirstName}} {{actor.LastName}}</li>
+</ul>
+<h2>Ohjaajat</h2>
+<ul>
+    <li ng-repeat="director in movie.Directors">{{director.FirstName}} {{director.LastName}}</li>
+</ul>
+<h2>Sisällön kuvaus</h2>
+<ul>
+    <li ng-if="isArray(movie.ContentDescriptors.ContentDescriptor)" ng-repeat="cd in movie.ContentDescriptors.ContentDescriptor"><img ng-src="{{cd.ImageURL}}"> {{cd.Name}}</li>
+    <li ng-if="!isArray(movie.ContentDescriptors.ContentDescriptor)"><img ng-src="{{movie.ContentDescriptors.ContentDescriptor.ImageURL}}"> {{movie.ContentDescriptors.ContentDescriptor.Name}}</li>
+</ul>
+<div ng-if="!(movie.Videos == '')">
+    <p>IsObject</p>
+    <div ng-if="movie.Videos.EventVideo.MediaResourceFormat == 'Unspecified'">
+        <p>Unspecified</p>
+        <video ng-src="{{trust(movie.Videos.EventVideo.Location)}}" controls></video>
+    </div>
+    <div ng-if="movie.Videos.EventVideo.MediaResourceFormat == 'YouTubeVideo'" style="width: 50%;">
+        <p>Youtube</p>
+        <div class="videoWrapper">
+            <iframe width="560" height="315" ng-src="{{trust('https://www.youtube.com/embed/' + movie.Videos.EventVideo.Location)}}" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+</div>

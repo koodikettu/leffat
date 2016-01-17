@@ -1,0 +1,139 @@
+<div id="progress" style="align: center;">
+    <h1>Ladataan...</h1>
+</div>
+
+<div id="data">
+    <div class="row">
+        <div class="col-md-12" >
+            <div class="movieTitle">
+                <h1>Tulossa pian: {{movie.Title}}</h1> 
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+
+        <div class="col-sm-8 col-sm-push-4 col-xs-12">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="infobox">
+                        <div class="headerImage">
+                            <img class="img-responsive" ng-src="{{movie.Images.EventLargeImageLandscape}}" alt="Image:EventLargeImageLandscape {{movie.Title}}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="infobox">
+                        <h1>{{movie.Title}}</h1>
+                        <h2>Ensi-ilta Suomessa {{formatDate(movie.dtLocalRelease)}}</h2>
+
+                        <p>{{movie.Synopsis}}</p>
+                    </div>
+                </div>
+            </div>
+            <!--        <div class="row">
+                        <div class="col-md-12">
+                            <div class="infobox">
+                                <h1>{{movie.Title}}</h1>
+            
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="infobox">
+                                <p>{{movie.Synopsis}}</p>
+                            </div>
+                        </div>
+                    </div>-->
+
+            <div class="row">
+                <div class="col-md-12 ">
+                    <div class="infobox">
+                        <div class="row">
+
+                            <div ng-if="movie.Cast != ''" class="col-md-6">
+                                <div>
+                                    <h3>Näyttelijät</h3>
+                                    <div ng-if="isArray(movie.Cast.Actor)">
+                                        <span ng-repeat="actor in movie.Cast.Actor">{{actor.FirstName}} {{actor.LastName}}<br/></span>
+                                    </div>
+                                    <div ng-if="!isArray(movie.Cast.Actor)">
+                                        <span ng-repeat="actor in movie.Cast">{{actor.FirstName}} {{actor.LastName}}<br/></span>
+                                    </div>
+                                    <!--                <span ng-repeat="actor in movie.Cast.Actor">{{actor.FirstName}} {{actor.LastName}}</br></span>-->
+                                </div>
+                            </div>
+                            <div ng-if="movie.Directors != ''" class="col-md-6">
+                                <div>
+                                    <h3>Ohjaaja</h3>
+                                    <div ng-if="isArray(movie.Directors.Director)">
+                                        <span ng-repeat="director in movie.Directors.Director">{{director.FirstName}} {{director.LastName}}<br/></span>
+                                    </div>
+                                    <div ng-if="!isArray(movie.Directors.Director)">
+                                        <span ng-repeat="director in movie.Directors">{{director.FirstName}} {{director.LastName}}<br/></span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-if="!(movie.Videos == '')">
+                <div class="infobox">
+                    <h1>Traileri</h1>
+                    <div ng-if="movie.Videos.EventVideo.MediaResourceFormat == 'Unspecified'">
+                        <video ng-src="{{trust(movie.Videos.EventVideo.Location)}}" controls></video>
+                    </div>
+                    <div ng-if="movie.Videos.EventVideo.MediaResourceFormat == 'YouTubeVideo'" style="width: 100%;">
+                        <div class="videoWrapper">
+                            <iframe width="560" height="315" ng-src="{{trust('https://www.youtube.com/embed/' + movie.Videos.EventVideo.Location)}}" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4 col-sm-pull-8 col-xs-12">
+            <div class="infobox">
+                <img class="img-responsive" ng-src="{{movie.Images.EventMediumImagePortrait}}" alt="Image:EventLargeImageLandscape {{movie.Title}}">
+
+            </div>
+            <div class="infobox">
+                <p>Genre: {{movie.Genres}}
+                <div style="display: inline-block;">
+                    <div ng-if="movie.Rating != 'Luok_vap'" class="contentDescriptor">
+                        <img ng-src="{{movie.RatingImageUrl}}">
+                    </div>
+
+                    <div class="contentDescriptor" ng-if="isArray(movie.ContentDescriptors.ContentDescriptor)">
+                        <div class="contentDescriptor" ng-repeat="cd in movie.ContentDescriptors.ContentDescriptor"><img ng-src="{{cd.ImageURL}}"></div>
+                    </div>
+                    <div class="contentDescriptor" ng-if="!isArray(movie.ContentDescriptors.ContentDescriptor)">
+                        <img ng-src="{{movie.ContentDescriptors.ContentDescriptor.ImageURL}}">
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="infobox">
+                Alkukielinen nimi: {{movie.OriginalTitle}}</br>
+                Tuotantovuosi: {{movie.ProductionYear}}</br>
+                Kesto: {{movie.LengthInMinutes}} min</br>
+                Ensi-ilta Suomessa: {{formatDate(movie.dtLocalRelease)}}</br>
+                Esitystyyppi: {{movie.EventType}}</br>
+                Paikallinen levitysyhtiö: {{movie.LocalDistributorName}}</br>
+                Kansainvälinen levitysyhtiö: {{movie.GlobalDistributorName}}</br>
+                Elokuva Finnkinon sivustolla: <a ng-href="{{movie.EventURL}}" target="_blank">{{movie.Title}}</a></br>
+            </div>
+        </div>
+    </div>
+
+</div>

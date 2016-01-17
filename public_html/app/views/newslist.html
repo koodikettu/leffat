@@ -1,0 +1,27 @@
+<div id="progress" style="align: center;">
+    <h1>Ladataan...</h1>
+</div>
+
+<div id="data">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="movieTitle">
+                <h1 class="title">Uutisia</h1>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+
+
+        <div ng-repeat="news in newsList.NewsArticle" class="col-md-12">
+            <div class="infobox">
+                <h3><a ng-href="#/news/{{$index}}">{{news.Title}}</a></h3>
+                <span>{{formatDate(news.PublishDate)}}</span>
+            </div>
+
+        </div>
+
+    </div>
+</div>

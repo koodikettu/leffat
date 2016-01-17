@@ -1,0 +1,16 @@
+<div id="progress" style="align: center;">
+    <h1>Ladataan...</h1>
+</div>
+
+<div id="data">
+
+
+    <div class="row">
+        <div class="infobox">
+            <h1>{{newsItem.Title}}</h1>
+            <p ng-bind-html="trust(newsItem.HTMLLead)"></p>
+            <p ng-bind-html="trust(newsItem.HTMLContent)"></p>
+        </div>
+
+    </div>
+</div>

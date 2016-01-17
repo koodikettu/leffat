@@ -1,0 +1,76 @@
+
+<div id="progress" style="align: center;">
+    <h1>Ladataan...</h1>
+</div>
+
+<div id="data">
+    <div class="row">
+        <div class="row">
+            <div class="col-md-12" >
+                <div class="movieTitle">
+                    <h1>Tulossa olevat elokuvat</h1> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="infobox">
+                <div class="row">
+
+
+                    <div class="col-md-6">
+
+                        <h3>Haku</h3>
+                        <form>
+                            <label>Hae hakusanalla</label>
+                            <input ng-model="searchbox" class="form-control">
+                        </form>
+
+
+                    </div>
+                    <div class="col-md-6">
+
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="row">
+
+
+        <div ng-repeat="movie in comingSoonList | filter:searchbox" class="col-md-4 col-sm-6 col-xs-12" style="height: 325px;">
+            <a ng-href="#/comingSoon/{{movie.ID}}">
+                <div class="moviebox">
+                    <div ng-style="{'background-image': 'url(' + movie.Images.EventLargeImageLandscape + ')'}" style="width: 100%; height: 175px; background-position: center; background-size: cover">
+                        <!--                <img ng-src="{{movie.Images.EventLargeImageLandscape}}" class="img-responsive">-->
+                    </div>
+                    <h3 class="linkWithoutUnderline">
+
+                        {{movie.Title}}
+                    </h3>
+                    <!--            <p>{{movie.ShortSynopsis}}</p>-->
+
+                    <p><b>{{movie.Genres}} |<span ng-if="movie.Rating != 'Luok_vap' && movie.Rating != 'S'"> K-{{movie.Rating}} |</span> Kesto {{movie.LengthInMinutes}} min.</b></p>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

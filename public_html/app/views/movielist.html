@@ -1,0 +1,73 @@
+<div id="progress" style="align: center;">
+    <h1>Ladataan...</h1>
+</div>
+
+<div id="data">
+    <div class="row">
+        <div class="col-md-12" >
+            <div class="movieTitle">
+                <h1>Ohjelmistossa olevat elokuvat</h1> 
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="infobox">
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <h3>Haku</h3>
+                        <form>
+                            <label>Hae hakusanalla</label>
+                            <input ng-model="searchbox" class="form-control">
+                        </form>
+
+
+                    </div>
+                    <div class="col-md-6">
+
+                        <h3>Alueelliset esitysaikataulut</h3>
+                        <form>
+                            <div class="form-group">
+                                <label> Valitse teatteri / alue</label>
+                                <select ng-model="areaSelect" ng-options="ta as ta.Name for ta in theatreAreaList.TheatreArea track by ta.ID" class="form-control" required="true">
+                                    <!--                <option ng-repeat="theatreArea in theaterAreaList.TheatreArea" value="{{theaterArea.ID}}">{{theaterArea.Name}}</option>-->
+                                </select>
+                            </div>
+                            <a class="btn btn-primary" ng-href="#/theatreArea/{{areaSelect.ID}}/schedule/">Hae aikataulu</a>
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="row">
+
+
+        <div ng-repeat="movie in movieList| filter:searchbox" class="col-md-4 col-sm-6 col-xs-12" style="height: 325px;">
+            <a ng-href="#/movie/{{movie.ID}}">
+                <div class="moviebox">
+                    <div ng-style="{'background-image': 'url(' + movie.Images.EventLargeImageLandscape + ')'}" style="width: 100%; height: 175px; background-position: center; background-size: cover">
+                        <!--                <img ng-src="{{movie.Images.EventLargeImageLandscape}}" class="img-responsive">-->
+                    </div>
+                    <h3 class="linkWithoutUnderline">
+
+                        {{movie.Title}}
+                    </h3>
+                    <!--            <p>{{movie.ShortSynopsis}}</p>-->
+
+                    <p><b>{{movie.Genres}} |<span ng-if="movie.Rating != 'Luok_vap' && movie.Rating != 'S'"> K-{{movie.Rating}} |</span> Kesto {{movie.LengthInMinutes}} min.</b></p>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</div>
+
+
+

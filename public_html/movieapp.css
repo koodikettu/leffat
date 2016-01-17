@@ -1,0 +1,229 @@
+/*body {
+    width: 100%;
+    font-family: 'Arial';
+    background-color: black;
+}*/
+
+.container {
+    background-color: #FFFFFF;
+}
+
+/*div {
+    border :1px solid blue;
+}*/
+
+.moviebox {
+    padding: 0.5em;
+    height: 95%;
+    border: 1px solid #333;
+    color: #333;
+    transition: all 0.3s ease 0s;
+}
+
+.moviebox:hover {
+    background-color: #DDDDDD;
+    text-decoration: none;
+    color: #333;
+    transition: all 0.3s ease 0s;
+}
+
+
+
+
+
+
+.thumb {
+    padding: 8px;
+    float: left;
+}
+
+.videoWrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+}
+
+.carouselWrapper {
+    position: relative;
+    padding-bottom: 66%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+}
+
+.videoWrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.movieboxContainer {
+    margin: 1em;
+}
+
+.headerImage {
+    width: 100%;
+}
+
+.headerImage img {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 0 auto;
+}
+
+video {
+    width: 100%;
+}
+
+.contentDescriptor {
+    display: inline-block;
+    float: left;
+}
+
+.container-fluid {
+    padding:0;
+    margin: 0;
+}
+
+.siteHeader {
+    width: 100%;
+    margin: 0;
+    border: 1px solid lightblue;
+}
+
+.siteTitle {
+    padding: 0 0 0.25em 0.25em;
+    font-family: 'Droid Serif', serif;
+    font-size: 40px;
+    text-transform: uppercase;
+    background-color: #111111;
+    color: #DDDDDD;
+    text-align: center;
+}
+
+.menu {
+    padding: 0 0 0.25em 0.25em;
+    font-family: 'Droid Serif', serif;
+    font-size: 20px;
+    text-transform: uppercase;
+    background-color: #111111 ;
+    color: #DDDDDD;
+    text-align: left;
+}
+
+.menu a, .menu a:hover {
+    text-decoration: none;
+}
+
+.menuitem {
+    display: inline-block;
+    margin: 0.5em 1em 0 1em;
+}
+
+.menuitem:hover {
+    color: yellow;
+    transition: 0.5s;
+    background-color: #181818;
+    text-decoration: none;
+}
+
+.movieTitle {
+    padding-bottom: 0.5em;
+    font-family: 'Droid Serif', serif;
+    text-transform: uppercase;
+    text-align: center;
+    color: #000000;
+        font-size: 40px;
+    font-weight: bold;
+}
+
+
+.infobox {
+    margin: 0.5em 0 0.5em 0;
+    /*    margin: 0;*/
+    padding: 1em;
+    /*    border: 1px solid lightblue;*/
+    background-color: #F0F0F0;
+}
+
+.infobox.header {
+    background-color: #D0D0D0;
+}
+
+.infobox h1 {
+    margin-top: 0;
+/*    margin-bottom: 0;*/
+}
+
+.infobox h3 {
+    margin-top: 0;
+}
+
+.infobox .home {
+    height: 200px;
+}
+
+.title {
+    margin: auto;
+    text-transform: uppercase;
+}
+
+/*.infobox a:hover, a:visited, a:link, a:active {
+    text-decoration: none;
+    color: #333;
+}*/
+
+
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#movieCarousel {
+    margin: 1em auto 2em auto;
+}
+
+.hidden {
+    display: none;
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 55%;
+    left: 0;
+    width: 100%;
+}
+
+.carousel-caption h3 {
+    background-color: rgba(0,0,0,0.5);
+    text-transform: uppercase;
+}
+
+.carousel-caption a:hover, .carousel-caption a:visited, .carousel-caption a:link, .carousel-caption a:active {
+    text-decoration: none;
+    color: #FFF;
+}
+
+.carousel-caption a:hover {
+    text-decoration: none;
+    color: yellow;
+}
+
+.btn {
+    margin-top: 0.5em;
+}
+
+.timeAndLocationString {
+    font-size: larger;
+}
+
+.scheduleTitle {
+    text-transform: uppercase;
+    margin-top: 0.2em;
+    margin-bottom: 0;
+}
+
+

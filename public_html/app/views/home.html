@@ -1,0 +1,117 @@
+<div id="progress" style="align: center;">
+    <h1>Ladataan...</h1>
+</div>
+
+<div id="data">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="infobox">
+                <h3 class="title">
+                    Aikataulut
+                </h3>
+                <form>
+                    <div class="form-group">
+                        <label> Valitse teatteri / alue</label>
+                        <select ng-model="areaSelect" ng-options="ta as ta.Name for ta in theatreAreaList.TheatreArea track by ta.ID" class="form-control" required="true">
+                            <!--                <option ng-repeat="theatreArea in theaterAreaList.TheatreArea" value="{{theaterArea.ID}}">{{theaterArea.Name}}</option>-->
+                        </select>
+                    </div>
+                    <a class="btn btn-primary" ng-href="#/theatreArea/{{areaSelect.ID}}/schedule/">Hae aikataulu</a>
+                </form>
+            </div>
+
+            <div class="infobox">
+                <h3 class="title">
+                    <a href="#/movielist">
+                        Elokuvat
+                    </a>
+                </h3>
+                Ohjelmistossa olevat elokuvat
+            </div>
+            <div class="infobox">
+                <h3 class="title">
+                    <a href="#/comingSoon">
+                        Tulossa
+                    </a>
+                </h3>
+
+                Tutustu tulossa oleviin elokuviin
+
+            </div>
+
+            <div class="infobox">
+                <h3 class="title">
+                    <a href="#/news">
+                        Uutiset
+                    </a>
+                </h3>
+                Finnkinon uutisia ja tiedotteita
+            </div>
+
+
+        </div>
+
+        <div class="col-md-8">
+            <div class="infobox">
+
+                <div id="movieCarousel" class="carousel slide center" data-ride="carousel" style="width: 100%;">
+                    <!-- Indicators -->
+                    <!--                <ol class="carousel-indicators">
+                                        <li ng-repeat="movie1 in movieList" data-target="#carousel-example-generic" data-slide-to="{{$index}}" ng-class="{'active' : $index == 0}"></li>
+                                    </ol>-->
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <div ng-repeat="movie2 in movieList| filter:{LocalDistributorName: '!DocPoint'} | limitTo:8" class="item" ng-class="{'active' : $index == 0}">
+                            <img class="img-responsive" src="{{movie2.Images.EventLargeImageLandscape}}" alt="{{movie2.Title}}" style="width: 100%;">
+                            <div class="carousel-caption">
+                                <a ng-href="#/movie/{{movie2.ID}}">
+                                    <h3>{{movie2.Title}}</h3>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#movieCarousel" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#movieCarousel" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+            <div class="infobox">
+                <h1>Elokuvahaku</h1>
+                <p>Elokuvahaku on nettisovellus, jonka avulla voi tutustua Finnkinon elokuvateattereiden
+                    tarjontaan. Sovellus on toteutettu käyttäen 
+                    <a href="https://angularjs.org/" target="_blank">AngularJS</a>:ää ja
+                    <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a>ia.
+                </p>
+                <p>
+                    Sovelluksen tarvitsema data haetaan
+                    <a href="http://www.finnkino.fi/xml" target="_blank">Finnkinon XML-syötteistä</a>.
+                    Syötteitä ei ole dokumentoitu, joten niistä saatavan datan ominaisuuksista ei ole
+                    takeita. Sovellusta toteutettaessa datan rakennetta on selvitetty konkreettisia
+                    syötteitä tutkimalla. Datan rakenne on osittain epäjohdonmukainen. Esimerkiksi
+                    tulossa olevien elokuvien osalta data on puutteellista. Uutissyötteessä on käytetty
+                    paikoin suhteellisia URL:iä, mistä johtuen osa uutisartikkeleihin sisältyvistä
+                    linkeistä ei toimi.
+                </p>
+                <p>
+                    Sovellus lataa netin yli paljon tiedostoja, erityisesti kuvia. Se soveltuu siten
+                    nykymuodossaan huonosti käytettäväksi hitaan nettiyhteyden kautta.
+                </p>
+                <p>
+                    Oikeudet kaikkeen materiaaliin kuuluvat Finnkinolle tai sen yhteistyökumppaneille.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>

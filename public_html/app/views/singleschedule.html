@@ -1,0 +1,63 @@
+<div id="progress" style="align: center;">
+    <h1>Ladataan...</h1>
+</div>
+
+<div id="data">
+
+    <div class="row">
+        <div class="col-md-12" >
+            <div class="movieTitle">
+                <h1>{{movie.Title}}</h1>
+                <h2>Esitysaikataulu - {{currentArea.Name}}</h2>
+            </div>
+        </div>
+
+    </div>
+    <div ng-if="isDef(schedule) && schedule.length == 0" class="row">
+        <div class="col-md-12">
+            <div class="infobox">
+                <h1 style="text-align:center; text-transform: uppercase;">Ei näytöksiä</h1>
+            </div>
+        </div>
+
+    </div>
+    <div ng-if="schedule.length > 0" class="row">
+        <div class="col-md-12" ng-repeat="n in schedule">
+            <div class="infobox">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img class="img-responsive" ng-src="{{n.Images.EventSmallImageLandscape}}">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+
+                        <span class="timeAndLocationString">{{formatDate(n.dttmShowStartUTC)}} klo {{formatTime(n.dttmShowStartUTC)}} - {{n.Theatre}}</span></br>
+                        <h3 class="scheduleTitle">
+                            <a ng-href="#/movie/{{n.EventID}}">
+                                {{n.Title}}
+                            </a>
+                        </h3>
+                        <p>
+                            Sali: {{n.TheatreAuditorium}}</br>
+                            Kesto: {{n.LengthInMinutes}} minuuttia, päättyy noin klo {{formatTime(n.dttmShowEndUTC)}}
+
+                        </p>
+
+                    </div>
+                    <div class="col-md-3">
+                        <a class="btn btn-primary center" ng-href="{{n.ShowURL}}" target="_blank">Osta liput näytökseen</a></br>
+                        Esityksen alkuun aikaa:</br>
+                        {{ humanReadableTimeDifference(strToDate(n.dttmShowStartUTC) - currTime)}}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
