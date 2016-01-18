@@ -193,6 +193,7 @@ video {
 .carousel-caption {
     position: absolute;
     top: 55%;
+    max-height: 45%;
     left: 0;
     width: 100%;
 }
@@ -200,6 +201,12 @@ video {
 .carousel-caption h3 {
     background-color: rgba(0,0,0,0.5);
     text-transform: uppercase;
+}
+
+@media screen and (max-width: 468px) {
+    .carousel-caption h3 {
+        font-size: 16px;
+    }
 }
 
 .carousel-caption a:hover, .carousel-caption a:visited, .carousel-caption a:link, .carousel-caption a:active {
